@@ -1,0 +1,46 @@
+html
+    head 
+        script 
+              include myscript.js
+    style.
+        a
+        {
+            text-decoration:none;
+            color:black;
+        }
+        h1 
+        {
+            text-align:center;
+        }
+        button {
+            margin:10px;
+           
+            color: black;
+            height:50px;
+            width:100px;
+            background-color:rgba(131, 236, 240, 0.5);;
+        
+        } 
+        
+    body
+        button 
+            a(href='/home') Back 
+        div(style="display:flex")
+            each f in fo
+                if(f.id==id)
+                    div(border="1px" style="margin:20px;padding:10px;border-style:solid;border-color:black;height:400px;width:250px")
+                        form(name="editfood")  
+                            input(type="text" value=f.foodname name="foodname")
+                            br
+                            input(type="number" value=f.noeat name="noeat")
+                            br
+                            input(type="number" value=f.price name="price")
+                            br
+                            input(type="text" value=f.remark name="remark")
+                            br
+                            input(type="text" value=f.location name="location")
+                            br
+                            input(type="text" value=f.delivery name="delivery")
+                            br
+                            button(onclick="updatefood(event,"+id+f.foodpic+f.user+")") UPDATE
+                                            

@@ -1,0 +1,101 @@
+html
+    head 
+    style.
+        a
+        {
+            text-decoration:none;
+        }
+        h1 
+        {
+            text-align:center;
+        }
+        button {
+            margin:10px;
+            color: black;
+            height:50px;
+            width:100px;
+            background-color:rgba(131, 236, 240, 0.5);
+        }
+        button a
+        {
+              color:black;
+        }
+        h3{
+            text-align:center;
+        }
+        form
+        {
+            margin-left:600px;
+        }
+        form select{
+            width:150px;
+            height:50px;
+        }
+        #kk{
+            margin-left:400px;
+        }
+        .card {
+            width: 130px;
+            height: 195px;
+            position: relative;
+            display: inline-block;
+        }
+        .card .img-top {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+        .card:hover .img-top {
+            display: inline;
+         }                       
+    body
+        h1 Welcome To FoodCourt
+        h3="Hello "+use+" !!!"
+        div(id="kk")
+            button 
+                a(href="/myprofile") Myprofile
+            button
+                a(href="/addfood.html") AddFood 
+            
+            button 
+                a(href="/myorder") myorder
+            button 
+                a(href="/myFood") my Food 
+            
+            button 
+                a(href="/placed") placed order
+            button 
+                a(href="/logout") logout
+            
+        
+        br
+        h3 select your location
+        form(action="/home2" method="post" name="myform")
+            select(name="mylocation" ) 
+                each loc in locations
+                     option(value=loc)=loc
+                option(value="all") all 
+            button search
+        br
+        br
+        div(style="display:flex;flex-wrap:wrap")
+            each food in fo
+                if(selectedloc=="all")
+                    a(href="/food/"+food.id) 
+                        div(border="1px" style="margin:20px;padding:10px;border-style:solid;border-color:black;height:300px;width:250px")
+                            div(class="card" style="height:200px")
+                                img(src=food.foodpic[0] width="200px" height="200px")
+                                img(src=food.foodpic[1]  class="img-top" width="200px" height="200px")
+                            p="name: "+food.foodname 
+                            p="price: "+food.price   
+                else 
+                    if(food.location==selectedloc)
+                        a(href="/food/"+food.id) 
+                            div( border="1px" style="margin:20px;padding:10px;border-style:solid;border-color:black;height:300px;width:250px")
+                                div(class="card" style="height:200px")
+                                    img(src=food.foodpic[0] width="200px" height="200px")
+                                    img(src=food.foodpic[1]  class="img-top" width="200px" height="200px")
+                                p="name: "+food.foodname 
+                                p="price: "+food.price

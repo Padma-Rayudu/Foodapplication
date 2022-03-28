@@ -1,0 +1,56 @@
+html
+    head 
+    style.
+        a
+        {
+            text-decoration:none;
+              color: black;
+        }
+        h1 
+        {
+            text-align:center;
+        }
+        button {
+            margin:10px;
+           
+            color: black;
+            height:50px;
+            width:100px;
+            background-color:rgba(131, 236, 240, 0.5);;
+        
+        }
+        .card {
+            width: 130px;
+            height: 195px;
+            position: relative;
+            display: inline-block;
+        }
+        .card .img-top {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+        .card:hover .img-top {
+            display: inline;
+        }
+    body
+        h1 Food Added by me
+        button 
+            a(href='/home') Back
+        div(style="display:flex;flex-wrap:wrap")  
+            each f in fdata 
+                if(uu==f.user)
+                    div(border="1px" style="margin:20px;padding:10px;border-style:solid;border-color:black;height:500px;width:250px")
+                        div(class="card" style="height:200px")
+                            img(src=f.foodpic[0] width="200px" height="200px")
+                            img(src=f.foodpic[1]  class="img-top" width="200px" height="200px")
+                        p="Name: "+f.foodname  
+                        p="Price: Rs."+f.price
+                        p="No.ofEaters: "+f.noeat
+                        p="Remarks: "+f.remark 
+                        p="DeliveryType: "+f.delivery
+                        button
+                            a(href="/deletefood/"+f.id)  Delete
+        

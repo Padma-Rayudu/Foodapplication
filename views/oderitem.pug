@@ -1,0 +1,55 @@
+html
+    head 
+    style.
+        a
+        {
+            text-decoration:none;
+            color:black;
+        }
+        h1 
+        {
+            text-align:center;
+        }
+         button {
+            margin:10px;
+           
+            color: white;
+            height:50px;
+            width:100px;
+            background-color:rgba(131, 236, 240, 0.5);;
+        
+        }
+        .card {
+            width: 130px;
+            height: 195px;
+            position: relative;
+            display: inline-block;
+        }
+        .card .img-top {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+        .card:hover .img-top {
+            display: inline;
+        }
+    body
+        h1 my orders
+        button 
+            a(href='/home') Back
+        div(style="display:flex;flex-wrap:wrap") 
+            each p in placed 
+                each f in fo 
+                    if(p.placeditem==f.id&&u!=p.user&&f.user==u)
+                        div( border="1px" style="margin:20px;padding:10px;border-style:solid;border-color:black;height:400px;width:250px")
+                            div(class="card" style="height:200px")
+                                img(src=f.foodpic[0] width="200px" height="200px")
+                                img(src=f.foodpic[1]  class="img-top" width="200px" height="200px")
+                            p="name: "+f.foodname  
+                            p="Price: Rs."+f.price
+                            p="No.OfEaters: "+f.noeat
+                            p="Remarks: "+f.remark 
+                            p="DeliveryType: "+f.deliver
+                            p="OrderedBy: "+p.user      
